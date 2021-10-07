@@ -1,6 +1,5 @@
 import ProductList from "./component/ProductList";
-// <div className=""></div>
-
+import ProductContextProvider from "./contexts/ProductContext";
 function App() {
   return (
     <>
@@ -10,7 +9,9 @@ function App() {
         <div className="container-xl">
           <div className="table-responsive">
             <div className="table-wrapper">
-              <ProductList />
+              <ProductContextProvider>
+                 <ProductList />
+              </ProductContextProvider>
            </div>
           </div>
         </div>

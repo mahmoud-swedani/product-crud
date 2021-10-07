@@ -1,14 +1,9 @@
-import { useState } from "react"
+import { useContext } from "react"
+import { ProductContext } from "../contexts/ProductContext"
 import Product from "./Products"
 
 const ProductList = () => {
-    // const [product, setproduct] = useState([
-    const [product] = useState([
-        {id:1, product:"pin", desc: 'color red', amount: 10, price: 20, taxes: 5, sub: 200, tootal:50},
-        {id:2, product:"car", desc: 'BMW', amount: 1, price: 300, taxes: 5, sub: 300, tootal:50},
-        {id:3, product:"table", desc: 'Wood', amount: 2, price: 30, taxes: 5, sub: 60, tootal:50},
-        {id:4, product:"readio", desc: 'smoole machane', amount: 2, price: 50, taxes: 5, sub: 100, tootal:50},
-    ])
+const {product} = useContext(ProductContext)
     
     return(
         <>
