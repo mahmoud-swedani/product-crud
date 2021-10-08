@@ -15,10 +15,12 @@ const ProductContextProvider  = (props) => {
     const addProduct = (productName, desc, price) => {
         setProduct([...product ,{id:uuidv4(), productName, desc, price}])
     }
-    
+    const deleteProduct = (id) => {
+        setProduct(product.filter(product => product.id !== id))
+    }
 
     return (
-        <ProductContext.Provider value={{product, addProduct}}>
+        <ProductContext.Provider value={{product, addProduct, deleteProduct}}>
             {props.children}
         </ProductContext.Provider>
     )

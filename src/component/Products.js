@@ -1,5 +1,10 @@
+import { useContext } from "react"
+import { ProductContext } from "../contexts/ProductContext"
+
 const Product = (props) => {
     const {product} = props
+
+    const {deleteProduct} = useContext(ProductContext)
 
     return(
         <>
@@ -12,7 +17,7 @@ const Product = (props) => {
                     <i className="material-icons">&#xE254;</i>
                 </button>
 
-                <button className="btn text-danger btn-act" data-toggle="modal">
+                <button onClick={() => deleteProduct(product.id)}  className="btn text-danger btn-act" data-toggle="modal">
                     <i className="material-icons">&#xE872;</i>
                 </button>
             </td>
