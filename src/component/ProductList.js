@@ -33,12 +33,9 @@ const ProductList = () => {
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>product</th>
+                        <th>productName</th>
                         <th>desc</th>
-                        <th>amount</th>
                         <th>price</th>
-                        <th>taxes</th>
-                        <th>tootal</th>
                         <th>action</th>
                     </tr>
                 </thead>

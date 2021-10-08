@@ -5,16 +5,20 @@ export const ProductContext = createContext()
 
 const ProductContextProvider  = (props) => {
 
-    const [product] = useState([
-        {id:uuidv4(), product:"pin", desc: 'color red', amount: 10, price: 20, taxes: 5, tootal:50},
-        {id:uuidv4(), product:"car", desc: 'BMW', amount: 1, price: 300, taxes: 5, tootal:50},
-        {id:uuidv4(), product:"table", desc: 'Wood', amount: 2, price: 30, taxes: 5, tootal:50},
-        {id:uuidv4(), product:"readio", desc: 'smoole machane', amount: 2, price: 50, taxes: 5, tootal:50},
+    const [product, setProduct] = useState([
+        {id:uuidv4(), productName:"pin", desc: 'color red', price: 20},
+        {id:uuidv4(), productName:"car", desc: 'BMW', price: 300},
+        {id:uuidv4(), productName:"table", desc: 'Wood', price: 30},
+        {id:uuidv4(), productName:"readio", desc: 'smoole machane',price: 30}
     ])
 
+    const addProduct = (productName, desc, price) => {
+        setProduct([...product ,{id:uuidv4(), productName, desc, price}])
+    }
+    
 
     return (
-        <ProductContext.Provider value={{product}}>
+        <ProductContext.Provider value={{product, addProduct}}>
             {props.children}
         </ProductContext.Provider>
     )

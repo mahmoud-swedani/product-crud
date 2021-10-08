@@ -1,14 +1,12 @@
 
 const Product = (props) => {
     const {product} = props
+    
     return(
         <>
-            <td>{ product.product }</td>
+            <td>{ product.productName }</td>
             <td>{ product.desc }</td>
-            <td>{ product.amount }</td>
             <td>{ product.price } <span className="SYP">SYP</span></td>
-            <td>{ product.taxes } <span className="SYP">SYP</span></td>
-            <td>{ product.tootal } <span className="SYP">SYP</span></td>
             <td>
 
                 <button  className="btn text-warning btn-act" data-toggle="modal">
