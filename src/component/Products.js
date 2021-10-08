@@ -8,7 +8,6 @@ const Product = (props) => {
             <td>{ product.amount }</td>
             <td>{ product.price } <span className="SYP">SYP</span></td>
             <td>{ product.taxes } <span className="SYP">SYP</span></td>
-            <td>{ product.sub } <span className="SYP">SYP</span></td>
             <td>{ product.tootal } <span className="SYP">SYP</span></td>
             <td>
 
