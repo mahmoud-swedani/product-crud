@@ -1,7 +1,6 @@
-
 const Product = (props) => {
     const {product} = props
-    
+
     return(
         <>
             <td>{ product.productName }</td>

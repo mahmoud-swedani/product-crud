@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../contexts/ProductContext"
 import { Modal, Button} from 'react-bootstrap';
 
@@ -14,7 +14,9 @@ const ProductList = () => {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
-    
+    useEffect(() => {
+        handleClose()
+    }, [product])
     return(
         <>
             <div className="table-title">
