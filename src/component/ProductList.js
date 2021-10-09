@@ -60,6 +60,7 @@ const ProductList = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <AddForm />
+                    <AddForm />
                 </Modal.Body>
                 <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>

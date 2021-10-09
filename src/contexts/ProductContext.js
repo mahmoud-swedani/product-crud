@@ -18,9 +18,12 @@ const ProductContextProvider  = (props) => {
     const deleteProduct = (id) => {
         setProduct(product.filter(product => product.id !== id))
     }
-
+    const updateProduct = (id, updatedProduct) => {
+        setProduct(product.map((prod) => prod.id === id ? updatedProduct : prod))
+    }
+    
     return (
-        <ProductContext.Provider value={{product, addProduct, deleteProduct}}>
+        <ProductContext.Provider value={{product, addProduct, deleteProduct, updateProduct}}>
             {props.children}
         </ProductContext.Provider>
     )
