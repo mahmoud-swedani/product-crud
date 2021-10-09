@@ -31,6 +31,7 @@ const EditForm = ({theProduct}) =>{
                     type="text"
                     placeholder="product *"
                     name="productName"
+                    value={productName}                    
                     onChange = { (e) => setName(e.target.value)}
                     required
                 />
@@ -40,6 +41,7 @@ const EditForm = ({theProduct}) =>{
                     as="textarea"
                     placeholder="desc *"
                     name="desc"
+                    value={desc}                    
                     onChange = { (e) => setDesc(e.target.value)}
                     required
                 />
@@ -49,6 +51,7 @@ const EditForm = ({theProduct}) =>{
                     type="number"
                     placeholder="price *"
                     name="price"
+                    value={price}                    
                     onChange = { (e) => setPrice(e.target.value)}
                     required
                 />

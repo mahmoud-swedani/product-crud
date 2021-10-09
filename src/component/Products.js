@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../contexts/ProductContext"
 import EditForm from "./EditForm"
 import { Modal, Button } from "react-bootstrap"
@@ -13,7 +13,9 @@ const Product = (props) => {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
- 
+    useEffect(() => {
+        handleClose()
+    }, [product])
     return(
         <>
             <td>{ product.productName }</td>
