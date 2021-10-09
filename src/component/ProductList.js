@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../contexts/ProductContext"
 import { Modal, Button, Alert} from 'react-bootstrap';
-
+import Pagination from './Pagination'
 import Product from "./Products"
 import AddForm from "./AddForm"
 
@@ -27,6 +27,16 @@ const ProductList = () => {
             handleShowAlert();
         }
     }, [product])
+
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productPerPage] = useState(2)
+    
+    const indexOfLastProduct = currentPage * productPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+    const currentProducts = product.slice(indexOfFirstProduct, indexOfLastProduct);
+    const totalPagesNum = Math.ceil(product.length / productPerPage);
+
     return(
         <>
             <div className="table-title">
@@ -65,6 +75,11 @@ const ProductList = () => {
                 </tbody>
             </table>
 
+            <Pagination pages = {totalPagesNum}
+                setCurrentPage={setCurrentPage}
+                currentProducts ={currentProducts}
+                product = {product} />
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>
@@ -72,7 +87,6 @@ const ProductList = () => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddForm />
                     <AddForm />
                 </Modal.Body>
                 <Modal.Footer>
