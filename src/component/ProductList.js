@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../contexts/ProductContext"
-import { Modal, Button} from 'react-bootstrap';
+import { Modal, Button, Alert} from 'react-bootstrap';
 
 import Product from "./Products"
 import AddForm from "./AddForm"
@@ -10,12 +10,22 @@ const ProductList = () => {
     const {product} = useContext(ProductContext)
 
     const [show, setShow] = useState(false);
-    
+    const [showAlert, setShowAlert] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
+    const handleShowAlert = () => {
+        setShowAlert(true);
+        setTimeout(()=> {
+            setShowAlert(false);
+        }, 2000)
+    }
+
     useEffect(() => {
         handleClose()
+        return () => {
+            handleShowAlert();
+        }
     }, [product])
     return(
         <>
@@ -32,6 +42,9 @@ const ProductList = () => {
                     </div>
                 </div>
             </div>
+            <Alert show={showAlert} variant="success">
+                product List Updated Succefully!
+            </Alert>
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
