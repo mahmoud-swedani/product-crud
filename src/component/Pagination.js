@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Pagination = ({pages, setCurrentPage, currentProducts, product}) => {
+const Pagination = ({pages, setCurrentPage, currentProduct, product}) => {
 
 
     const numOfPages = [];
@@ -17,7 +17,7 @@ const Pagination = ({pages, setCurrentPage, currentProducts, product}) => {
 
     return (
         <div className="clearfix">
-        <div className="hint-text">Showing <b>{currentProducts.length}</b> out of <b>{product.length}</b> entries</div>
+        <div className="hint-text">Showing <b>{currentProduct.length}</b> out of <b>{product.length}</b> entries</div>
         <ul className="pagination">
             <li className={`${currentButton === 1 ? 'page-item disabled' : 'page-item' }`}><a href="#!"
                 onClick = { () => setCurrentButton((prev) => prev === 1 ? prev : prev - 1)}
@@ -42,11 +42,3 @@ const Pagination = ({pages, setCurrentPage, currentProducts, product}) => {
 }
 
 export default Pagination;
-
-/* <li className="page-item disabled"><a href="#!">Previous</a></li>
-<li className="page-item"><a href="#!" className="page-link">1</a></li>
-<li className="page-item"><a href="#!" className="page-link">2</a></li>
-<li className="page-item active"><a href="#!" className="page-link">3</a></li>
-<li className="page-item"><a href="#!" className="page-link">4</a></li>
-<li className="page-item"><a href="#!" className="page-link">5</a></li>
-<li className="page-item"><a href="#!" className="page-link">Next</a></li> */

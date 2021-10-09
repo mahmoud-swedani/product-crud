@@ -27,15 +27,13 @@ const ProductList = () => {
             handleShowAlert();
         }
     }, [product])
-
-    
     const [currentPage, setCurrentPage] = useState(1);
-    const [productPerPage] = useState(2)
-    
-    const indexOfLastProduct = currentPage * productPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-    const currentProducts = product.slice(indexOfFirstProduct, indexOfLastProduct);
-    const totalPagesNum = Math.ceil(product.length / productPerPage);
+    const [productPer] = useState(2)
+    const indexOfLastProduct = currentPage * productPer;
+    const indexOfFirstProduct = indexOfLastProduct - productPer;
+    const currentProduct = product.slice(indexOfFirstProduct, indexOfLastProduct);
+    const totalPagesNum = Math.ceil(product.length / productPer);
+
 
     return(
         <>
@@ -77,8 +75,9 @@ const ProductList = () => {
 
             <Pagination pages = {totalPagesNum}
                 setCurrentPage={setCurrentPage}
-                currentProducts ={currentProducts}
+                currentProduct ={currentProduct}
                 product = {product} />
+
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
